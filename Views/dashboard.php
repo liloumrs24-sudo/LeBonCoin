@@ -9,7 +9,7 @@ if(!isset($_SESSION['user_id'])) {
     header("Location: auth.php");
     exit();
 }
-
+                                   
 $host = 'localhost';
 $dbname = 'le_bon_coin';
 $username = 'root';
@@ -24,7 +24,7 @@ try {
 
 // Ajouter la colonne avatar si elle n'existe pas encore
 $columnCheck = $pdo->query("SHOW COLUMNS FROM utilisateur LIKE 'avatar'");
-if(!$columnCheck->fetch()) {
+if(!$columnCheck->fetch ()) {
     $pdo->exec("ALTER TABLE utilisateur ADD COLUMN avatar VARCHAR(255) NULL DEFAULT NULL");
 }
 
